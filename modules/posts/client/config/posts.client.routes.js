@@ -11,7 +11,7 @@ angular.module('posts').config(['$stateProvider',
     }).
     state('userHome', {
       url: '/home',
-      templateUrl: 'modules/posts/views/posts.client.view.html'
+      templateUrl: 'modules/posts/client/views/posts.client.view.html'
     });
   }
 ]);
