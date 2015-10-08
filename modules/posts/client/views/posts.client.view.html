@@ -1,0 +1,104 @@
+<section data-ng-controller="PostsController">
+  <div class="postview">
+    <div class="col-md-2 col-md-offset-1">
+      <div class="passionmenu">
+        <ul class="ulmenu">
+          <li class="limenu"><a class="menu" href="#">Art & Craft</a></li>
+          <li class="limenu"><a class="menu" href="#">Beauty Artist</a></li>
+          <li class="limenu"><a class="menu" href="#">Confectioners</a></li>
+          <li class="limenu"><a class="menu" href="#">Entertainers</a></li>
+          <li class="limenu"><a class="menu" href="#">Events</a></li>
+          <li class="limenu"><a class="menu" href="#">Fashion</a></li>
+          <li class="limenu"><a class="menu" href="#">Gadgets & Technology Enthusiath</a></li>
+          <li class="limenu"><a class="menu" href="#">Graphics Designers</a></li>
+          <li class="limenu"><a class="menu" href="#">Home Service</a></li>
+          <li class="limenu"><a class="menu" href="#">House Designers</a></li>
+          <li class="limenu"><a class="menu" href="#">Local Stores</a></li>
+          <li class="limenu"><a class="menu" href="#">Music</a></li>
+          <li class="limenu"><a class="menu" href="#">Photographers & Cinematographers</a></li>
+          <li class="limenu"><a class="menu" href="#">Programming & Networking</a></li>
+          <li class="limenu"><a class="menu" href="#">Public Speaking</a></li>
+          <li class="limenu"><a class="menu" href="#">Sports</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6 posts">
+      <div>
+        <tabset>
+          <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled" ng-click="onClick(tab)">
+            <div class="mainView">
+              <div ng-include="currentTab"></div>
+            </div>
+          </tab>
+        </tabset>
+        <script type="text/ng-template" id="one.tpl.html">
+          <form data-ng-submit="create()" novalidate>
+            <textarea rows="3" cols="90" class="styled" wrap="off"></textarea>
+            <div class="form-group">
+              <input type="submit" class="btn btn-default submitButton">
+            </div>
+          </form>
+        </script>
+        
+        <script type="text/ng-template" id="two.tpl.html">
+          <form>
+            <input type="text" class="form-control">
+            <img ngf-src="!files[0].$error && files[0]">
+            <audio controls ngf-src="!files[0].$error && files[0]"></audio>
+            <video controls ngf-src="!files[0].$error && files[0]"></video>
+            <div ngf-select ngf-drop= "upload($files, $file, $event)" 
+              ngf-multiple="multiple" ngf-pattern="pattern"
+              ng-model="myFiles" 
+              ngf-change= "upload($files, $file, $event)" ng-disabled="boolean" ngf-drop-disabled="boolean" 
+              ngf-multiple="boolean" ngf-allow-dir="boolean" ngf-keep="keep" ngf-keep-distinct="keepDistinct"
+              ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}" 
+              ngf-drop-available="dropSupported" 
+              ngf-stop-propagation="boolean"
+              ngf-hide-on-drop-not-available="boolean"
+              class="drop-box"
+
+              //validations:
+              same as ngf-select see above
+              supported
+            >
+              Drop files here
+            </div>
+            <div ngf-no-file-drop >File Drag/Drop is not supported for this browser</div>
+          </form>
+        </script>
+        
+        <script type="text/ng-template" id="three.tpl.html">
+            <h1>View Three</h1>
+            <p>In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.</p>
+          </div>
+        </script>
+      </div>
+      <div data-ng-hide="authentication.user">
+        <div data-ng-repeat="posts in post">
+          <hr />
+        </div>
+      </div data-ng-show="authentication.user">
+      <div data-ng-repeat="posts in post">
+        <hr />
+      </div>
+    </div>
+    <div class="col-md-2 sidebar">
+      <div class="connect">
+        <div data-ng-hide="authentication.user">
+          <h4>Subcribe For Newletter</h4>
+          <form>
+            <input type="text" class="form-control">
+            <input type="submit" class="btn btn-default sidebutton">
+          </form>
+        </div>
+        <div data-ng-show="authentication.user">
+          <h3>Add Connections</h3>
+          <form>
+            <input class="text" class="form-control">
+            <input type="submit" class="btn btn-default sidebutton" >
+          </form>
+        </div>
+    </div>
+      </div>
+  </div>
+</section>

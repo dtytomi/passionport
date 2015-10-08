@@ -1,0 +1,98 @@
+.intro {
+    display: table;
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+    /*text-align: center;*/
+    color: #fff;
+    background: url(/modules/core/img/homepage/pashport-city.jpg) no-repeat bottom center scroll;
+    background-color: #000;
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;*/
+    background-size: cover;
+    /*-o-background-size: cover;*/
+}
+
+.intro .intro-body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.intro .intro-body .brand-heading {
+    font-size: 40px;
+}
+
+.intro .intro-body .intro-text {
+    font-size: 18px;
+}
+
+@media(min-width:768px) {
+    .intro {
+        height: 100%;
+        padding: 0;
+    }
+
+    .intro .intro-body .brand-heading {
+        font-size: 100px;
+    }
+
+    .intro .intro-body .intro-text {
+        font-size: 26px;
+    }
+}
+
+/* ----- Image grids ----- */
+ul.rig {
+  list-style: none;
+  font-size: 0;
+  margin-left: -2.5%; /* should match li left margin */
+  margin-top: 50px;
+  margin-right: 25px;
+}
+ul.rig li {
+  display: inline-block;
+  padding: 10px;
+  margin: 0 0 2.5% 2.5%;
+  background: #fff;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  font-size: 1rem;
+  vertical-align: top;
+  box-shadow: 0 0 5px #ddd;
+  box-sizing: border-box;
+ /* -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box*/;
+}
+
+ul.rig li h3 {
+  margin: 0 0 5px;
+}
+
+ul.rig li p {
+  font-size: .9em;
+  line-height: 1.5em;
+  color: #999;
+}
+
+/* class for 4 columns */
+ul.rig.columns-4 li {
+  width: 22.5%; /* this value + 2.5 should = 25% */
+  opacity:0.5;
+}
+
+@media (max-width: 1199px) {
+  .container {
+    width: auto;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  ul.rig {
+    margin-left: 0;
+  }
+  ul.rig li {
+    width: 100% !important; /* over-ride all li styles */
+    margin: 0 0 20px;
+  }
+}

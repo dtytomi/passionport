@@ -1,0 +1,109 @@
+.postForm{
+  border: 1px;
+}
+
+.posts {
+  margin-top: 50px;
+}
+
+textarea:focus {
+  outline: none;
+  overflow: auto;
+}
+textarea.styled{
+  margin-top: 10px;
+  width: 600px;
+  height: 50px;
+  resize: none;
+}
+
+.mainView {
+  border: 1px solid black;
+  clear: both;
+  padding: 0 1em;
+  width: 640px;
+  height: 120px;
+}
+
+.postview {
+  margin-top: 70px;
+  min-height: 100%;
+}
+
+.editProfile {
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+/*.postform {
+
+}*/
+
+.submitButton {
+  margin-top: 10px;
+  margin-left: 535px;
+}
+
+.input {
+  margin-top: 10px;
+  width: 600px;
+  height: 50px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-right-style: none;
+  border-left-style: none;
+}
+
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: 170px;
+    height: 170px;
+    text-align: center;
+    padding: 100px 10px 0 10px;
+    margin-left: 10px;
+}
+
+.button {
+    -moz-appearance: button;
+    /* Firefox */
+    -webkit-appearance: button;
+    /* Safari and Chrome */
+    padding: 10px;
+    margin: 10px;
+    width: 70px;
+}
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: 200px;
+    height: 65px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 10px;
+}
+.dragover {
+    border: 5px dashed blue;
+}
+
+.form-control {
+  margin-top: 5px;
+}
+
+.sidebar {
+  margin-left: 30px;
+}
+
+.connect {
+  margin-top: 100px;
+}
+
+.sidebutton {
+  float: right;
+  margin-top: 10px;
+}
+
+.passionmenu {
+  margin-top: 70px;
+}
