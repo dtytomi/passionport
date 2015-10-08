@@ -26,8 +26,46 @@ var validateLocalStrategyEmail = function (email) {
 /**
  * User Schema
  */
+ 
+var FollowerSchema = new Schema({
+
+    followedBy: {
+      type: Schema.ObjectId,
+       ref: 'User'
+    },
+
+    followerUrl: {
+      type: String,
+      default: ''
+    },
+
+    FollowedOn: {
+      type: Date,
+      default: Date.now
+    }
+});
+
+var FollowingSchema = new Schema({
+
+    following: {
+      type: Schema.ObjectId,
+       ref: 'User'
+    },
+
+    followingUrl: {
+      type: String,
+      default: ''
+    },
+
+    startedFollowingOn: {
+      type: Date,
+      default: Date.now
+    }
+
+});
+
 var UserSchema = new Schema({
-  firstName: {
+   firstName: {
     type: String,
     trim: true,
     default: '',
@@ -96,7 +134,28 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
-  }
+  },
+  
+  status: {
+    type: String,
+    default: 'Hire'
+  },
+
+  passion: {
+      type: String,
+      default: ''
+  },
+
+  areasOfIntrest: [{
+      specialties: {
+        type: String,
+        default: ''
+      }     
+  }],
+
+  following: [FollowingSchema],
+  followers: [FollowerSchema]
+
 });
 
 /**

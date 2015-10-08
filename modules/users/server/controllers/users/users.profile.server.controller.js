@@ -94,3 +94,56 @@ exports.changeProfilePicture = function (req, res) {
 exports.me = function (req, res) {
   res.json(req.user || null);
 };
+
+/**
+* Followers
+*/
+exports.followers = function(req, res) {
+      
+  var user = req.user;
+  var follower = req.body;
+
+  user.followers.unshift(follower);
+
+  user.save(function(err){
+      if (err) {
+        return res.send(400, {
+          message: user.getErrorMessage(err)
+        });
+      } 
+      else{
+        res.jsonp(user);
+      }
+  });
+};
+
+exports.listFollowers = function( req, res ) {
+      res.jsonp(req.user.followers);
+};
+
+/**
+* Following
+*/
+exports.following = function(req, res) {
+
+  var user = req.user;
+  var follows = req.body;
+
+  user.following.unshift(follows);
+
+  user.save(function(err){
+      if (err) {
+          return res.send(400, {
+                message: user.getErrorMessage(err)
+          });
+      } 
+      else{
+        res.jsonp(user);
+      }
+  });
+
+};
+
+exports.listFollowing = function( req, res ) {
+      res.jsonp(req.user.following);
+};

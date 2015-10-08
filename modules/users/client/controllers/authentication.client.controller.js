@@ -13,6 +13,28 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $location.path('/');
     }
 
+    $scope.data = {
+      passion: null,
+      passions: [
+        {id: '1', name: 'Art & Craft'},
+        {id: '2', name: 'Beauty Artist'},
+        {id: '3', name: 'Confectioners'},
+        {id: '4', name: 'Entertainers'},
+        {id: '5', name: 'Events'},
+        {id: '6', name: 'Fashion'},
+        {id: '7', name: 'Fabrics'},
+        {id: '8', name: 'Graphics Designer'},
+        {id: '9', name: 'Gadges & Technology Enthusiasts'},
+        {id: '10', name: 'Graphics Designer'},
+        {id: '11', name: 'Home Services'},
+        {id: '12', name: 'Music'},
+        {id: '13', name: 'Photograhpers & Cinematograpers'},
+        {id: '14', name: 'Programming & Networking'},
+        {id: '15', name: 'Sports'},
+        {id: '16', name: 'Writers & Theatre Artists'}
+      ],
+   };
+
     $scope.signup = function (isValid) {
       $scope.error = null;
 
@@ -22,12 +44,16 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         return false;
       }
 
+      console.log("I was called at the front");
+
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
-
+        console.log($scope.credentials);
+        $scope.$close('closed');
         // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.previous.params);
+        $state.go($state.previous.state.name || 'settings', $state.previous.params);
+        // $location.path('/settings');
       }).error(function (response) {
         $scope.error = response.message;
       });
@@ -45,9 +71,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $http.post('/api/auth/signin', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
+        $scope.$close('closed');
 
         // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.previous.params);
+        // $state.go($state.previous.state.name || 'home', $state.previous.params);
+        $location.path('/home');
       }).error(function (response) {
         $scope.error = response.message;
       });

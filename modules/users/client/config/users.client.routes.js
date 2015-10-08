@@ -36,11 +36,25 @@ angular.module('users').config(['$stateProvider',
       })
       .state('authentication.signup', {
         url: '/signup',
-        templateUrl: 'modules/users/client/views/authentication/signup.client.view.html'
+        onEnter: ['$stateParams', '$state', '$modal', '$resource', function($stateParams, $state, $modal, $resource) {
+          $modal.open({
+              templateUrl: 'modules/users/client/views/authentication/signup.client.view.html',
+              controller: 'AuthenticationController',
+          }).result.finally(function() {
+              $state.go('home');
+          });
+        }]
       })
       .state('authentication.signin', {
-        url: '/signin?err',
-        templateUrl: 'modules/users/client/views/authentication/signin.client.view.html'
+        url: '/signin',
+        onEnter: ['$stateParams', '$state', '$modal', '$resource', function($stateParams, $state, $modal, $resource) {
+          $modal.open({
+              templateUrl: 'modules/users/client/views/authentication/signin.client.view.html',
+              controller: 'AuthenticationController'
+          }).result.finally(function() {
+              $state.go('home');
+          });
+        }]
       })
       .state('password', {
         abstract: true,

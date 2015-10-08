@@ -18,9 +18,11 @@ var noReturnUrls = [
 /**
  * Signup
  */
-exports.signup = function (req, res) {
+exports.signup = function(req, res) {
   // For security measurement we remove the roles from the req.body object
   delete req.body.roles;
+
+  console.log("I got called");
 
   // Init Variables
   var user = new User(req.body);
@@ -29,9 +31,10 @@ exports.signup = function (req, res) {
   // Add missing user fields
   user.provider = 'local';
   user.displayName = user.firstName + ' ' + user.lastName;
-
-  // Then save the user
-  user.save(function (err) {
+  user.userUrl = 'http://localhost:3000/' + user.username;
+  
+  // Then save the user 
+  user.save(function(err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -41,7 +44,7 @@ exports.signup = function (req, res) {
       user.password = undefined;
       user.salt = undefined;
 
-      req.login(user, function (err) {
+      req.login(user, function(err) {
         if (err) {
           res.status(400).send(err);
         } else {
