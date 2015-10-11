@@ -31,6 +31,25 @@
             <p class="help-block error-text" ng-message="required">Username is required.</p>
           </div>
         </div>
+        <div class="form-group">
+          <label for="passion"> Passion </label>
+          <select name="passion" id="passion" ng-model="credentials.passion" class="form-control">
+            <option ng-repeat="option in credentials.passions" value="{{option.id}}">{{option.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="areasofintrest">Areas of Intrest</label>
+          <input type="text" id="areasofintrest" name="areasofintrest" class="form-control" ng-model="user.areasofintrest" placeholder="Areas of Intrest" required>
+          <div ng-messages="userForm.areasofintrest.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Areas of Intrest is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="status"> Status </label>
+          <select name="status" id="status" ng-model="credentials.selectedStatus" class="form-control">
+            <option ng-repeat="option in credentials.status" value="{{option.id}}">{{option.name}}</option>
+          </select>
+        </div>
         <div class="text-center form-group">
           <button type="submit" class="btn btn-primary">Save Profile</button>
         </div>

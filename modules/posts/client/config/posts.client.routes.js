@@ -7,9 +7,9 @@ angular.module('posts').config(['$stateProvider',
    $stateProvider.
     state('listPost', {
       url: '/posts/findByPassion/:passion',
-      templateUrl: 'modules/posts/views/posts.client.view.html'
+      templateUrl: 'modules/posts/client/views/posts.client.view.html'
     }).
-    state('userHome', {
+    state('userhome', {
       url: '/home',
       templateUrl: 'modules/posts/client/views/posts.client.view.html'
     });

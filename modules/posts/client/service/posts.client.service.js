@@ -10,4 +10,18 @@ angular.module('posts').factory('Posts', ['$resource',
          }
       });
     }
-  ]);
+  ])
+
+//Test service for communicating with the test api endpoint
+.factory('Ideas', ['$resource',
+    function($resource) {
+        return $resource('api/posts/:postId/idea/:ideaId', {
+            ideaId: '@_id'
+        }, {
+            update: {
+                method: 'PUT'
+            }
+        });
+    }
+]);
+

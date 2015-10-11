@@ -146,7 +146,7 @@ var UserSchema = new Schema({
       default: ''
   },
 
-  areasOfIntrest: [{
+  areasofintrest: [{
       specialties: {
         type: String,
         default: ''

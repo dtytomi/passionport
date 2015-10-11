@@ -44,7 +44,7 @@ var IdeaSchema = new Schema({
       default: Date.now 
     },
 
-    status: {
+    idea: {
       type: String,
       default: '',
     },
