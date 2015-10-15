@@ -93,7 +93,7 @@ module.exports = function(app) {
   app.route('/api/posts').all(postsPolicy.isAllowed)
      .get(posts.list);
 
-  app.route('/api/posts/:passion')
+  app.route('/api/users/posts/:passion')
      .get(posts.listPost);
 
   // app.route('/:skill/:areaOfSpecialization')

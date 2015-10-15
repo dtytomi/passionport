@@ -146,8 +146,8 @@ var UserSchema = new Schema({
       default: ''
   },
 
-  areasofintrest: [{
-      specialties: {
+  areasofinterest: [{
+      interests: {
         type: String,
         default: ''
       }     

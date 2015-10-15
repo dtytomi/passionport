@@ -4,7 +4,7 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
   function ($scope, $http, $location, Users, Authentication) {
     $scope.user = Authentication.user;
 
-    $scope.credentials = {
+    $scope.data = {
       passion: null,
       passions: [
         {id: '1', name: 'Art & Craft'},
@@ -25,8 +25,8 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
         {id: '16', name: 'Writers & Theatre Artists'}
       ],
       
-      selectedStatus: {id: '1', name: 'available'},
-      status: [
+      status: {id: '1', name: 'available'},
+      statuslist: [
         {id: '1', name: 'available'},
         {id: '2', name: 'busy'},
         {id: '3', name: 'book'},
@@ -53,6 +53,8 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
 
         $scope.success = true;
         Authentication.user = response;
+        console.log(response);
+        console.log($scope.user);
       }, function (response) {
         $scope.error = response.data.message;
       });

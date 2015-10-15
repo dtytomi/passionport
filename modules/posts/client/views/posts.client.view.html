@@ -52,8 +52,6 @@
           <form>
             <input type="text" class="form-control">
             <img ngf-src="!files[0].$error && files[0]">
-            <audio controls ngf-src="!files[0].$error && files[0]"></audio>
-            <video controls ngf-src="!files[0].$error && files[0]"></video>
             <div ngf-select ngf-drop= "upload($files, $file, $event)" 
               ngf-multiple="multiple" ngf-pattern="pattern"
               ng-model="myFiles" 

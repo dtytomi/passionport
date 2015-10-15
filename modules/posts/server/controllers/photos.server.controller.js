@@ -6,6 +6,7 @@ var  _ = require('lodash'),
     mongoose = require('mongoose'),
     Post = mongoose.model('Post'),
     Photo = mongoose.model('Photo'),
+    AWS = require('aws-sdk'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
