@@ -8,6 +8,7 @@ var postsPolicy = require('../policies/posts.server.policy'),
     rates = require('../controllers/rates.server.controller'),
     videos = require('../controllers/videos.server.controller');
 
+
 module.exports = function(app) {
 
 /************************************************
@@ -40,7 +41,6 @@ module.exports = function(app) {
 **************************************************/
 
    app.route('/api/posts/photo').all(postsPolicy.isAllowed)
-      // .get(photos.list)
       .post(photos.create);
 
   app.route('/api/posts/:postId/photo/:photoId').all(postsPolicy.isAllowed)
@@ -93,8 +93,11 @@ module.exports = function(app) {
   app.route('/api/posts').all(postsPolicy.isAllowed)
      .get(posts.list);
 
-  app.route('/api/users/posts/:passion')
-     .get(posts.listPost);
+  app.route('/api/posts/search*')
+     .get(posts.search);
+
+  app.route('/api/posts/users/:passion')
+      .get(posts.listPassion);   
 
   // app.route('/:skill/:areaOfSpecialization')
   //    .get(posts.listSpecialities);

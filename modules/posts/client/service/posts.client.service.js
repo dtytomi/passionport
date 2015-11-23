@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('posts').factory('Posts', ['$resource',
+angular.module('posts')
+//Post Services
+.factory('Posts', ['$resource',
     function($resource) {
       return $resource('api/posts/:postId', { 
         postId : '@id' 
@@ -12,7 +14,19 @@ angular.module('posts').factory('Posts', ['$resource',
     }
   ])
 
-//Test service for communicating with the test api endpoint
+//Passion Service 
+.factory('Passion', ['$resource',
+  function($resource) {
+    return $resource('api/posts/users/:passion', { 
+    },  {
+       update : {
+        method: 'PUT'
+       }
+    });
+  }
+])
+
+// Idea Services
 .factory('Ideas', ['$resource',
     function($resource) {
         return $resource('api/posts/:postId/idea/:ideaId', {
@@ -23,5 +37,17 @@ angular.module('posts').factory('Posts', ['$resource',
             }
         });
     }
-]);
+])
 
+// Picture Services
+.factory('Pictures', ['$resource',
+    function($resource) {
+        return $resource('/api/posts/:postId/photo/:photoId', {
+            photoId: '@_id'
+        }, {
+            update: {
+                method: 'PUT'
+            }
+        });
+    }
+]);

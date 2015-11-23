@@ -18,7 +18,7 @@ module.exports = function (app) {
 
   app.route('/api/users/following/:userId')
      .get(users.listFollowing)  
-     .post( users.signin, users.following );   
+     .post( users.signin, users.following );
 
   // Finish by binding the user middleware
   app.param('userId', users.userByID);

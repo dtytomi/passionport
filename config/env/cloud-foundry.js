@@ -3,7 +3,7 @@
 var cfenv = require('cfenv'),
   appEnv = cfenv.getAppEnv(),
   cfMongoUrl = appEnv.getService('mean-mongo') ?
-  appEnv.getService('mean-mongo').credentials.uri : undefined;
+  appEnv.getService('mean-mongo').credentials.uri : 'mongodb://tomix:t0m1lola@ds047124.mongolab.com:47124/ebute-ero';
 
 var getCred = function (serviceName, credProp) {
   return appEnv.getService(serviceName) ?

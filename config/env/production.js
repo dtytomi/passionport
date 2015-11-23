@@ -8,7 +8,7 @@ module.exports = {
   },
   port: process.env.PORT || 8443,
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/passionport',
+    uri: process.env.MONGOHQ_URL || 'mongodb://tomix:t0m1lola@ds047124.mongolab.com:47124/ebute-ero' || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/passionport',
     options: {
       user: '',
       pass: ''

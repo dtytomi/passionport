@@ -17,6 +17,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       url: '/',
       templateUrl: 'modules/core/client/views/home.client.view.html'
     })
+    .state('usersByPassion', {
+      url: '/users/:passion',
+      templateUrl: 'modules/posts/client/views/passion.client.view.html'
+    })
     .state('not-found', {
       url: '/not-found',
       templateUrl: 'modules/core/client/views/404.client.view.html',
@@ -40,3 +44,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
     });
   }
 ]);
+
+angular.module('core').run(function($rootScope){
+
+});

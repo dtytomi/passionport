@@ -10,6 +10,14 @@ var _ = require('lodash'),
   mongoose = require('mongoose'),
   User = mongoose.model('User');
 
+var multiparty = require('multiparty'),
+    AWS = require('aws-sdk');
+
+var formidable = require('formidable');
+
+var bucket = 'ebute-ero-profilepics',
+    s3Client = new AWS.S3({params: {Bucket: bucket }});
+
 /**
  * Update user details
  */
@@ -56,30 +64,41 @@ exports.changeProfilePicture = function (req, res) {
   var message = null;
 
   if (user) {
-    fs.writeFile('./modules/users/client/img/profile/uploads/' + req.files.file.name, req.files.file.buffer, function (uploadError) {
-      if (uploadError) {
-        return res.status(400).send({
-          message: 'Error occurred while uploading profile picture'
-        });
-      } else {
-        user.profileImageURL = 'modules/users/client/img/profile/uploads/' + req.files.file.name;
+    
+    // Uploading to AWS S3
+    var path = req.files.file.path;
 
-        user.save(function (saveError) {
-          if (saveError) {
-            return res.status(400).send({
-              message: errorHandler.getErrorMessage(saveError)
+    fs.readFile(path, function (uploadError, file_buffer) {
+      var params = {
+        Key: req.files.file.originalFilename, // here you add you file name
+        Body: file_buffer
+      };
+
+      s3Client.putObject(params, function (uploadError) {
+        if (uploadError) {
+          return res.status(400).send({
+              message: 'Error occurred while uploading profile picture'
             });
-          } else {
-            req.login(user, function (err) {
-              if (err) {
-                res.status(400).send(err);
-              } else {
-                res.json(user);
-              }
-            });
-          }
-        });
-      }
+        } else {
+          user.profileImageURL = 'https://ebute-ero-profilepic-us-west-2.amazonaws.com/'+req.files.file.originalFilename;
+
+          user.save(function (saveError) {
+            if (saveError) {
+              return res.status(400).send({
+                message: errorHandler.getErrorMessage(saveError)
+              });
+            } else {
+              req.login(user, function (err) {
+                if (err) {
+                  res.status(400).send(err);
+                } else {
+                  res.json(user);
+                }
+              });
+            }
+          });
+        }
+      });
     });
   } else {
     res.status(400).send({

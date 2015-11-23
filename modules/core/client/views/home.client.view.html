@@ -1,112 +1,108 @@
 <section data-ng-controller="HomeController">
   <div class="intro">
-    <div class="intro-body">
-      <div class="passion">
-        <ul class="rig columns-4">
-          <li class="onmouse">
-            <a href="">
-              <h3>Art & Craft</h3>
-              <p>Leather works, Hand Bags, Beads, Bracelets, Charms, Head gears</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Beauty Artist</h3>
-              <p>Hair Stylist, Make-up Artist, Spa, Medicure and Pedicure, Barbers</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Confectioners</h3>
-              <p>Bakers, Bakkery, Chefs, Cooks, Olopo, Cooking Utensils, Roasted meat,</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Entertainers</h3>
-              <p>Djs, Dancers, Comedians, Mcs, Rapper, Fuji bands, Gospel Bands, Jazz Bands, Singers, Producers</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Events</h3>
-              <p>Bars, Lounge, Resturants, Events centers, Events Planners, Events Ushers & protocols, Decorators</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Fashion</h3>
-              <p>Fashion Designers, Sketchers, Tailors, Models</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Fabrics</h3>
-              <p>Adire, Aso-oke, Aso-Ebi, Kampala, Plastics wares, Toys</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Gadges & Technology Enthusiasts</h3>
-              <p>Reviewers, Fabricators, Welders</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Graphics Designer</h3>
-              <p>Desktop publishing</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Home Services</h3>
-              <p>Cleaners, Nannies, Horticulturist, Plumbers, Painters, Electricians, House Fumigation</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>House Designers</h3>
-              <p>Painters, Interior Designers, Flourist</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Music</h3>
-              <p>Pianist, Bassist, Organist</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Photograhpers & Cinematograpers </h3>
-              <p>Photographers, Video Sound Editing, Modellers</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Programming & Networking</h3>
-              <p>Web Developers, App Developers, Desktop Developers, Server Hosting, Network Engineers</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Public Speaking</h3>
-              <p>Life Coach & Trainers, Motivational Speakers, Events Speakers</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Sports</h3>
-              <p>Sport Analyst, Sport writer, Sport Instructors, Exercise Instructors, Gym</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <h3>Writers & Theatre Artists</h3>
-              <p>Drama, Prose, Poetry, Dance troupe, </p>
-            </a>
-          </li>
-        </ul>
-       </div> 
-    </div>
+    <ul class="rig columns-4">
+        <li class="onmouse" ng-click="onSearch('Art & Craft')">
+          <a href="">
+            <h3>Art & Craft</h3>
+            <p>Leather works, Hand Bags, Beads, Bracelets, Charms, Head gears</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Beauty Artist')">
+          <a href="">
+            <h3>Beauty Artist</h3>
+            <p>Hair Stylist, Make-up Artist, Spa, Medicure and Pedicure, Barbers</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Confectioners')">
+          <a href="">
+            <h3>Confectioners</h3>
+            <p>Bakers, Bakkery, Chefs, Cooks, Olopo, Cooking Utensils, Roasted meat,</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Entertainers')">
+          <a href="">
+            <h3>Entertainers</h3>
+            <p>Djs, Dancers, Comedians, Mcs, Rapper, Fuji bands, Gospel Bands, Jazz Bands, Singers, Producers</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Events')">
+          <a href="">
+            <h3>Events</h3>
+            <p>Bars, Lounge, Resturants, Events centers, Events Planners, Events Ushers & protocols, Decorators</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Fashion')">
+          <a href="">
+            <h3>Fashion</h3>
+            <p>Fashion Designers, Sketchers, Tailors, Models</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Fabrics')">
+          <a href="">
+            <h3>Fabrics</h3>
+            <p>Adire, Aso-oke, Aso-Ebi, Kampala, Plastics wares, Toys</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Gadges & Technology Enthusiasts')">
+          <a href="">
+            <h3>Gadges & Technology Enthusiasts</h3>
+            <p>Reviewers, Fabricators, Welders</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Graphics Designer')">
+          <a href="">
+            <h3>Graphics Designer</h3>
+            <p>Desktop publishing</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Home Services')">
+          <a href="">
+            <h3>Home Services</h3>
+            <p>Cleaners, Nannies, Horticulturist, Plumbers, Painters, Electricians, House Fumigation</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('House Designers')">
+          <a href="">
+            <h3>House Designers</h3>
+            <p>Painters, Interior Designers, Flourist</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Music')">
+          <a href="">
+            <h3>Music</h3>
+            <p>Pianist, Bassist, Organist</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Photograhpers & Cinematograpers')">
+          <a href="">
+            <h3>Photograhpers & Cinematograpers </h3>
+            <p>Photographers, Video Sound Editing, Modellers</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Programming & Networking')">
+          <a href="">
+            <h3>Programming & Networking</h3>
+            <p>Web Developers, App Developers, Desktop Developers, Server Hosting, Network Engineers</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Public Speaking')">
+          <a href="">
+            <h3>Public Speaking</h3>
+            <p>Life Coach & Trainers, Motivational Speakers, Events Speakers</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Sports')">
+          <a href="">
+            <h3>Sports</h3>
+            <p>Sport Analyst, Sport writer, Sport Instructors, Exercise Instructors, Gym</p>
+          </a>
+        </li>
+        <li ng-click="onSearch('Writers & Theatre Artists')">
+          <a href="">
+            <h3>Writers & Theatre Artists</h3>
+            <p>Drama, Prose, Poetry, Dance troupe, </p>
+          </a>
+        </li>
+    </ul>
   </div> 
 </section>

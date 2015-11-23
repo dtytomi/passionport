@@ -6,6 +6,11 @@
           <img ng-src="{{authentication.user.profileImageURL}}" alt="ebute-ero" class="img-thumbnail">
         </div>
       </div>
+      <div data-ng-hide="authentication.user">
+        <div class="form-group text-center">
+          <img ng-src="{{modules/core/client/img/brand/fireicon.jpg}}" alt="ebute-ero" class="img-thumbnail">
+        </div>
+      </div>
       <div class="passionmenu" data-ng-controller="HomeController">
         <ul class="ulmenu">
           <li class="limenu" ng-click="onSearch('Art & Craft')"><a class="menu" href="">Art & Craft</a></li>
@@ -32,10 +37,37 @@
       <div data-ng-show="authentication.user" ng-include="'modules/posts/client/views/form.client.view.html'"></div>
       <br>
       <br>
-      <div data-ng-init="find()">
-        <div data-ng-repeat="post in posts">
-          <hr />
-          <p>{{post}}</p>
+      <div class="list-group">
+        <div data-ng-init=findPassion()>
+          <div data-ng-repeat="post in posts">
+            <hr />
+            <img ng-src="{{post.user.profileImageURL}}" alt="{{post.user.displayName}}" class="header-profile-image" />
+            <h4 data-ng-bind="post.user.displayName">Am here</h6>
+            <div data-ng-bind="post.ideas[0].idea"></div>
+            <!-- Comments -->
+              
+            <!-- Comment form -->
+              <div data-ng-show="authentication.user">
+                <h4>Leave a comment</h4>
+                <form class="clearfix" data-ng-submit="createComment()" >
+                  <div data-ng-show="error" class="text-danger">
+                    <strong style="margin-left: 15px;" data-ng-bind="error"></strong>
+                  </div>
+                  <div class="col-md-12 form-group">
+                    <p ng-show="form.commbody.$error.invalid" class="text-danger">Comment cannot be blank.</p>
+                    <label class="sr-only" for="commbody">Comment</label>
+                    <textarea data-ng-model="commbody" class="form-control" id="commbody" placeholder="Comment" check-length required></textarea>
+                  </div>
+                  <div class="col-md-12 form-group text-left">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>                 
+              </div>
+            <p>{{post}}</p>
+          </div>
+          <div class="alert alert-warning text-center" ng-if="posts.$resolved && !posts.length">
+            No users as created a posts yet, why not you <a ui-sref="articles.create">create one</a>?
+          </div>
         </div>
       </div>
     </div>

@@ -1,21 +1,22 @@
 'use strict';
 
-
-var  _ = require('lodash'),
+var _ = require('lodash'),
     path = require('path'),
     mongoose = require('mongoose'),
     Post = mongoose.model('Post'),
     Photo = mongoose.model('Photo'),
-    AWS = require('aws-sdk'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
-* Create Photo
+* Create Photo 
 **/
-exports.create = function(req, res) {
-
+exports.create = function(req, res){
+  console.log();  
   var post = new Post();
-  var photo = new Photo(req.body);
+  var photo = {
+    caption: req.body.caption,
+    imageUrl: req.body.imageUrl
+  };
 
   post.user = req.user;
   
@@ -23,11 +24,11 @@ exports.create = function(req, res) {
 
   post.save(function(err) {
       if (err) {
-        return res.send(400, {
+       res.status(400).send({
           message: errorHandler.getErrorMessage(err)
         });
       } else{
-        res.jsonp(photo);
+        res.jsonp(post);
       }
   });
 };
@@ -50,8 +51,8 @@ exports.update = function(req, res) {
 
   post.save(function(err) {
     if (err) {
-      return res.send(400, {
-        message: errorHandler.getErrorMessage(err)
+      return  res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
       });
     } else{
         res.jsonp(photo);
@@ -67,7 +68,7 @@ exports.delete = function(req, res) {
 
   post.remove(function(err) {
       if (err) {
-        return res.send(400, {
+        return  res.status(400).send({
           message: errorHandler.getErrorMessage(err)
         });
       } else{

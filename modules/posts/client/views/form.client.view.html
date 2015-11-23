@@ -1,0 +1,36 @@
+<tabset>
+  <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled" ng-click="onClick(tab)">
+    <div class="mainView">
+      <div ng-include="currentTab"></div>
+    </div>
+  </tab>
+</tabset>
+<script type="text/ng-template" id="one.tpl.html">
+  <form name="ideaForm" ng-submit="createIdea(ideaForm.$valid)" novalidate>
+    <fieldset>
+      <textarea name="idea" rows="3" cols="90" class="form-control styled" wrap="off" ng-model="content" placeholder="idea" required></textarea>
+      <div ng-messages="articleForm.title.$error" role="alert">
+        <p class="help-block error-text" ng-message="required">Idea is required.</p>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-default submitButton">
+      </div>
+      <div ng-show="error" class="text-danger">
+        <strong ng-bind="error"></strong>
+      </div>
+    </fieldset>
+  </form>
+</script>
+
+<script type="text/ng-template" id="two.tpl.html">
+  <form name="photoForm" ng-submit="postPicture()">
+    <input type="text" class="form-control" value="Add Caption" ng-model="caption">
+    <input type="button" name="files" value="Upload picture" ngf-select="uploadPicture($files)" multiple="multiple" ngf-pattern="'image/*'" ngf-max-height="1000" ngf-max-size="1MB">
+    <input type="submit" class="btn btn-default submitButton" ng-disabled="!photoForm.$valid && disabled">
+    <ul>
+      <li ng-repeat="f in files" style="font:smaller">
+        {{f.name}}{{f.$errorParam}}
+      </li>
+    </ul>
+  </form>
+</script>

@@ -1,13 +1,13 @@
 ---
-declared-services: 
-  mean-mongo: 
-    label: mongolab 
-    plan: sandbox 
+# declared-services: 
+#   mongodb-ebute-ero: 
+#     label: mongodb-2.4
+#     plan: 100 
 applications:
-- name: passionport
-  host: passionport
-  memory: 128M
-  services:
-  - mean-mongo
+- name: ebute-ero
+  host: ebute-ero
+  memory: 1024MB
+  # services:
+  # - mongodb-ebute-ero
   env:
     NODE_ENV: cloud-foundry

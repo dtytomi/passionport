@@ -6,6 +6,8 @@ module.exports = {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+        'public/lib/font-awesome/css/font-awesome.min.css',
+        'public/lib/ng-img-crop/compile/minified/ng-img-crop.css'
       ],
       js: [
         'public/lib/angular/angular.min.js',
@@ -16,6 +18,8 @@ module.exports = {
         'public/lib/angular-ui-utils/ui-utils.min.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
         'public/lib/angular-file-upload/angular-file-upload.min.js',
+        'public/lib/ng-file-upload-shim/ng-file-upload-shim.min.js',
+        'public/lib/ng-file-upload/ng-file-upload.min.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
       ]
     },

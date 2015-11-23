@@ -2,7 +2,7 @@
 
 module.exports = {
 	port: 443,
-	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://localhost/passionport',
+	db: process.env.MONGOHQ_URL || 'mongodb://dtytomi:t0m1lola@ds047124.mongolab.com:47124/ebute-ero' || 'mongodb://localhost/passionport',
 	assets: {
 		lib: {
 			css: [

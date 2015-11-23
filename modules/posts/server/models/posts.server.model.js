@@ -46,7 +46,7 @@ var IdeaSchema = new Schema({
 
     idea: {
       type: String,
-      default: '',
+      default: ''
     },
 });
 
@@ -57,8 +57,13 @@ var PhotoSchema = new Schema({
       default: Date.now
     },
 
-    ImageUrl: {
+    caption: {
       type: String,
+      default: ''
+    },
+
+    imageUrl: {
+      type: Array,
       default: ''
     },
 });
